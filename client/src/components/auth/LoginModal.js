@@ -20,7 +20,7 @@ import { clearErrors } from '../../actions/errorActions';
 class LoginModal extends Component {
     state = {
         modal: false,
-        nic: '',
+        username: '',
         password: '',
         msg: null
     }
@@ -67,10 +67,10 @@ class LoginModal extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const { nic, password } = this.state;
+        const { username, password } = this.state;
 
         const user = {
-            nic,
+            username,
             password
         }
 
@@ -95,12 +95,12 @@ class LoginModal extends Component {
                         { this.state.msg ? ( <Alert color="danger">{ this.state.msg }</Alert> ) : null }
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for="nic">NIC</Label>
+                                <Label for="username">NIC or Driving License No</Label>
                                 <Input 
                                     type="text"
-                                    name="nic"
-                                    id="nic"
-                                    placeholder="NIC"
+                                    name="username"
+                                    id="username"
+                                    placeholder="NIC or Driving License No"
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />

@@ -20,6 +20,7 @@ mongoose
 app.use('/api/players', require('./routes/api/players'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/authPlayer', require('./routes/api/authPlayer'));
 
 const port = process.env.PORT || 5000;
 

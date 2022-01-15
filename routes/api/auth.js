@@ -13,16 +13,17 @@ const User = require('../../models/User');
 // @desc   Auth user
 // @access Public
 router.post('/', (req,res) => {
-    const {nic , password} = req.body;
+    const {username , password} = req.body;
 
     // Validation
-    if(!nic || !password) {
+    if(!username || !password) {
         return res.status(400).json({ msg: 'Please enter all fields'});
     }
 
     // Check for existing user
-    User.findOne({nic})
+    User.findOne({username})
     .then(user => {
+        if(user.role != "Admin") return res.status(400).json({ msg : 'User does not exist'});
         if(!user) return res.status(400).json({ msg : 'User does not exist'});
 
         // Validate Password
@@ -41,7 +42,7 @@ router.post('/', (req,res) => {
                             user : {
                                 id: user.id,
                                 name: user.name,
-                                nic: user.nic
+                                username: user.username
     
                             }
                         })

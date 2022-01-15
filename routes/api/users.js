@@ -12,22 +12,24 @@ const User = require('../../models/User');
 // @desc   Register new user
 // @access Public
 router.post('/', (req,res) => {
-    const {name, nic , password} = req.body;
+    const {name, username , password, contactNo, gender} = req.body;
 
     // Validation
-    if(!name || !nic || !password) {
+    if(!name || !username || !password || !contactNo || !gender) {
         return res.status(400).json({ msg: 'Please enter all fields'});
     }
 
     // Check for existing user
-    User.findOne({nic})
+    User.findOne({username})
     .then(user => {
         if(user) return res.status(400).json({ msg : 'User already exists'});
 
         const newUser = new User({
             name,
-            nic,
-            password
+            username,
+            password,
+            contactNo, 
+            gender
         });
 
         // Create salt & hash
@@ -49,8 +51,10 @@ router.post('/', (req,res) => {
                                 user : {
                                     id: user.id,
                                     name: user.name,
-                                    nic: user.nic
-        
+                                    username: user.username,
+                                    contactNo: user.contactNo, 
+                                    gender: user.gender
+
                                 }
                             })
                         }

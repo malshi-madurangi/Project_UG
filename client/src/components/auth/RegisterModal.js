@@ -21,8 +21,10 @@ class RegisterModal extends Component {
     state = {
         modal: false,
         name: '',
-        nic: '',
+        username: '',
         password: '',
+        contactNo: '', 
+        gender: '',
         msg: null
     }
 
@@ -65,16 +67,23 @@ class RegisterModal extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    onValueChange = (e) => {
+        this.setState({ gender: e.target.value });
+    };
+
     onSubmit = e => {
         e.preventDefault();
+        console.log(this.state.gender)
 
-        const{  name, nic, password } = this.state;
+        const{  name, username, password, contactNo, gender } = this.state;
 
         // Create User object
         const newUser = {
             name,
-            nic,
-            password
+            username,
+            password,
+            contactNo, 
+            gender
         };
 
         // Attempt to register
@@ -108,12 +117,12 @@ class RegisterModal extends Component {
                                     onChange={this.onChange}
                                 />
 
-                                <Label for="nic">NIC</Label>
+                                <Label for="username">NIC or Driving License No</Label>
                                 <Input 
                                     type="text"
-                                    name="nic"
-                                    id="nic"
-                                    placeholder="NIC"
+                                    name="username"
+                                    id="username"
+                                    placeholder="NIC or Driving License No"
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />
@@ -127,6 +136,37 @@ class RegisterModal extends Component {
                                     className='mb-3'
                                     onChange={this.onChange}
                                 />
+
+                                <Label for="contactNo">Contact Number</Label>
+                                <Input 
+                                    type="text"
+                                    name="contactNo"
+                                    id="contactNo"
+                                    placeholder="Contact Number"
+                                    className='mb-3'
+                                    onChange={this.onChange}
+                                />
+
+                                <Label>Gender</Label><br />
+                                <Label for="gender">
+                                    <Input
+                                    type="radio"
+                                    value="Male"
+                                    checked={this.state.gender === "Male"}
+                                    onChange={this.onValueChange}
+                                    />
+                                    Male
+                                </Label><br />
+                                <Label for="gender">
+                                    <Input
+                                    type="radio"
+                                    value="Female"
+                                    checked={this.state.gender === "Female"}
+                                    onChange={this.onValueChange}
+                                    />
+                                    Female
+                                </Label>
+
                                 <Button
                                     color="dark"
                                     style={{ marginTop: '2rem' }}

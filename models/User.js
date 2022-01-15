@@ -7,7 +7,7 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    nic: {
+    username: {
         type: String,
         required: true,
         unique: true
@@ -16,13 +16,29 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    contactNo: {
+        type: String,
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true
+    },
     role: {
         type: String,
         default: 'Player'
     },
-    register_date: {
+    lastPlayedDateTime: {
         type: Date,
         default: Date.now
+    },
+    lastSessionScore: {
+        type: Number,
+        default: 0
+    },
+    totalScore: {
+        type: Number,
+        default: 0
     }
 });
 
