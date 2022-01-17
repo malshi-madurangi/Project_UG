@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+/* font-family: 'Acme', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+/* font-family: 'PT Sans', sans-serif; */
+
+:root {
+    --dark: #282828;
+    --border: #dee2e6;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1024px;
+    margin: auto;
+
+}
+
+table {
+    border-spacing: 0px;
+    width: 100%;
+}
+
+.table td, .table th {
+    padding: .75em;
+    vertical-align: top;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.table tr:hover {
+    background-color: darkgrey;
+}
+
+.table .thead-dark th {
+    color: white;
+    background-color: var(--dark);
+    border-color: #32383e;
+}
+
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+    .table-responsive > .table {
+        margin-bottom: 0;
+    }
+    .table-responsive > .table > thead > tr > th,
+    .table-responsive > .table > tbody > tr > th,
+    .table-responsive > .table > tfoot > tr > th,
+    .table-responsive > .table > thead > tr > th,
+    .table-responsive > .table > tbody > tr > th,
+    .table-responsive > .table > tfoot > tr > th,
+    .table-responsive > .table > thead > tr > th,
+    .table-responsive > .table > tbody > tr > th,
+    .table-responsive > .table > thead > tr > td,
+    .table-responsive > .table > tbody > tr > td,
+    .table-responsive > .table > tfoot > tr > td,
+    .table-responsive > .table > thead > tr > td,
+    .table-responsive > .table > tbody > tr > td,
+    .table-responsive > .table > tfoot > tr > td,
+    .table-responsive > .table > thead > tr > td,
+    .table-responsive > .table > tbody > tr > td {
+        white-space: nowrap;
+    }
+}
