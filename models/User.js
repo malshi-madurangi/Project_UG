@@ -30,7 +30,7 @@ const UserSchema = new Schema({
     },
     lastPlayedDateTime: {
         type: Date,
-        default: Date.now
+        default: Date.now() + 5.5*60*60*1000
     },
     lastSessionScore: {
         type: Number,
