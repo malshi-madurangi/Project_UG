@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb://localhost:27017/Unilever",
+    "mongoURI": "mongodb+srv://RAMStudios:ram123@unilever.cvr1o.mongodb.net/Unilever?retryWrites=true&w=majority",
     "jwtSecret": "ug_ramJwtSecret"
 }

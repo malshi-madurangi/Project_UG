@@ -11,27 +11,33 @@ import { loadUser } from './actions/authActions'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import { BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Home from './components/screens/Home';
 
+import PropTypes from 'prop-types'
+
 class App extends Component {
+
+  static propTypes = {
+    isAuthenticated: PropTypes.bool
+  }
 
   componentDidMount() {
     store.dispatch(loadUser());
   };
 
   render() {
+    
     return (
-      <Provider store={store}>
+        <Provider store={store}>
         <div className="App">
           <AppNavbar />
-            <Container>
-              <UserModal />
-              <Players />
-            </Container>
+          <Container>
+            <Players />
+          </Container>
         </div>
-      </Provider>
+        </Provider>
     );
   }
   

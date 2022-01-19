@@ -14,6 +14,8 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
+import Home from './screens/Home';
+
 
 class Players extends Component {
 
@@ -36,48 +38,49 @@ class Players extends Component {
         const { players } = this.props.player; 
 
         return(
-            <Container>{ this.props.isAuthenticated ?
+            <Container>
+                { this.props.isAuthenticated ?
                     <TransitionGroup className="Players">
-                        <div class="table-responsive">
-                        <table responsive="sm" class="table" expand="sm">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Id</th>
-                                    <th>Contact No</th>
-                                    <th>Gender</th>
-                                    <th>Last Played Date & Time</th>
-                                    <th>Last Session Score</th>
-                                    <th>Total Score</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            {players.map(({ _id, name, username, contactNo, gender, lastPlayedDateTime, lastSessionScore, totalScore }) => (
-                                <CSSTransition key={_id} timeout={500} classNames="fade">
-                                    <tbody>
-                                        <tr>
-                                            <td>{name}</td>
-                                            <td>{username}</td>
-                                            <td>{contactNo}</td>
-                                            <td>{gender}</td>
-                                            <td>{lastPlayedDateTime}</td>
-                                            <td>{lastSessionScore}</td>
-                                            <td>{totalScore}</td>
-                                            <td>{ this.props.isAuthenticated ? <Button
-                                                class="btn"
-                                                className="remove-btn"
-                                                color="danger"
-                                                size="sm"
-                                                onClick={this.onDeleteClick.bind(this, _id)}
-                                            >&times;</Button> : null }</td>
-                                        </tr>
-                                    </tbody>
-                                </CSSTransition>
-                            ))}
-                        </table>
+                        <div className="table-responsive">
+                            <table responsive="sm" class="table" expand="sm">
+                                <thead className="thead-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Id</th>
+                                        <th>Contact No</th>
+                                        <th>Gender</th>
+                                        <th>Last Played Date & Time</th>
+                                        <th>Last Session Score</th>
+                                        <th>Total Score</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                {players.map(({ _id, name, username, contactNo, gender, lastPlayedDateTime, lastSessionScore, totalScore }) => (
+                                    <CSSTransition key={_id} timeout={500} classNames="fade">
+                                        <tbody>
+                                            <tr>
+                                                <td>{name}</td>
+                                                <td>{username}</td>
+                                                <td>{contactNo}</td>
+                                                <td>{gender}</td>
+                                                <td>{lastPlayedDateTime}</td>
+                                                <td>{lastSessionScore}</td>
+                                                <td>{totalScore}</td>
+                                                <td><Button
+                                                    class="btn"
+                                                    className="remove-btn"
+                                                    color="danger"
+                                                    size="sm"
+                                                    onClick={this.onDeleteClick.bind(this, _id)}
+                                                >&times;</Button></td>
+                                            </tr>
+                                        </tbody>
+                                    </CSSTransition>
+                                ))}
+                            </table>
                         </div>
-                    </TransitionGroup>: <h1>Access denied</h1>}
-                
+                    </TransitionGroup> 
+                : <Home />}
             </Container>
         )
     }
