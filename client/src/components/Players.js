@@ -14,6 +14,8 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
+import moment from 'moment'
+
 import Home from './screens/Home';
 
 
@@ -63,7 +65,7 @@ class Players extends Component {
                                                 <td>{username}</td>
                                                 <td>{contactNo}</td>
                                                 <td>{gender}</td>
-                                                <td>{lastPlayedDateTime}</td>
+                                                <td>{moment(lastPlayedDateTime.replace('Z', '')).format("MMMM Do YYYY, hh:mm:ss  A")}</td>
                                                 <td>{lastSessionScore}</td>
                                                 <td>{totalScore}</td>
                                                 <td><Button
