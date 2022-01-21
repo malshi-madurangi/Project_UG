@@ -38,6 +38,7 @@ router.post('/', (req,res) => {
                 (err, token) => {
                     if(err) throw err;
                     res.json({
+                        msg: 'Successfully logged in',
                         token,
                         user : {
                             id: user.id,
@@ -53,6 +54,7 @@ router.post('/', (req,res) => {
     })
 });
 
+
 // @route  GET api/authPlayer/user
 // @desc   Get player data
 // @access Private
@@ -61,6 +63,7 @@ router.get('/user',auth, (req,res) => {
     .select('-password')
     .then(user => res.json(user));  
 });
+
 
 // @route   UPDATE api/authplayer/update/:id
 // @desc    Update A Player

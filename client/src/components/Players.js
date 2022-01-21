@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-import moment from 'moment'
+import moment from 'moment';
 
 import Home from './screens/Home';
 

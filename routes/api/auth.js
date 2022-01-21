@@ -38,6 +38,7 @@ router.post('/', (req,res) => {
                     (err, token) => {
                         if(err) throw err;
                         res.json({
+                            msg: 'Successfully logged in',
                             token,
                             user : {
                                 id: user.id,
