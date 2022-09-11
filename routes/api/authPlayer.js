@@ -44,7 +44,8 @@ router.post('/', (req,res) => {
                             id: user.id,
                             name: user.name,
                             username: user.username,
-                            totalScore: user.totalScore
+                            totalScore: user.totalScore,
+                            completedLevel: user.completedLevel
 
                         }
                     })
@@ -73,7 +74,8 @@ router.put('/update/:id', auth, (req,res) => {
     const newData = {
         lastPlayedDateTime : req.body.lastPlayedDateTime,
         lastSessionScore : req.body.lastSessionScore,
-        totalScore : req.body.totalScore
+        totalScore : req.body.totalScore,
+        completedLevel : req.body.completedLevel
     }
 
     User.findByIdAndUpdate(req.params.id, newData)
@@ -84,7 +86,8 @@ router.put('/update/:id', auth, (req,res) => {
                     name : player.name,
                     lastPlayedDateTime: player.lastPlayedDateTime,
                     lastSessionScore: player.lastSessionScore,
-                    totalScore: player.totalScore
+                    totalScore: player.totalScore,
+                    completedLevel: player.completedLevel
                 }
             });
         }else {

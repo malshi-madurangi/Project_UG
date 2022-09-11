@@ -78,3 +78,12 @@ table {
         white-space: nowrap;
     }
 }
+
+
+/* Form Validation CSS */
+
+span{
+    font-size: 15px;
+    padding: 3px;
+    color: red;
+}

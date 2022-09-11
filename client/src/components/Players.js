@@ -54,10 +54,11 @@ class Players extends Component {
                                         <th>Last Played Date & Time</th>
                                         <th>Last Session Score</th>
                                         <th>Total Score</th>
+                                        <th>Completed Level</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                {players.map(({ _id, name, username, contactNo, gender, lastPlayedDateTime, lastSessionScore, totalScore }) => (
+                                {players.map(({ _id, name, username, contactNo, gender, lastPlayedDateTime, lastSessionScore, totalScore, completedLevel }) => (
                                     <CSSTransition key={_id} timeout={500} classNames="fade">
                                         <tbody>
                                             <tr>
@@ -68,6 +69,7 @@ class Players extends Component {
                                                 <td>{moment(lastPlayedDateTime.replace('Z', '')).format("MMMM Do YYYY, hh:mm:ss  A")}</td>
                                                 <td>{lastSessionScore}</td>
                                                 <td>{totalScore}</td>
+                                                <td>{completedLevel}</td>
                                                 <td><Button
                                                     class="btn"
                                                     className="remove-btn"

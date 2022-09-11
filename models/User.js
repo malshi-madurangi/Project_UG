@@ -39,6 +39,10 @@ const UserSchema = new Schema({
     totalScore: {
         type: Number,
         default: 0
+    },
+    completedLevel: {
+        type: Number,
+        default: 0
     }
 });
 
