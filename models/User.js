@@ -43,6 +43,46 @@ const UserSchema = new Schema({
     completedLevel: {
         type: Number,
         default: 0
+    },
+    lastFirstSessionScore: { 
+        type: Number,
+        default: 0
+    },
+    lastSecondSessionScore: { 
+        type: Number,
+        default: 0 
+    },
+    lastThirdSessionScore: { 
+        type: Number,
+        default: 0
+    },
+    lastFourthSessionScore: {
+        type: Number,
+        default: 0
+    },
+    lastFifthSessionScore: {
+        type: Number,
+        default: 0
+    },
+    lastSixthSessionScore: {
+        type: Number,
+        default: 0
+    },
+    lastSeventhSessionScore: {
+        type: Number,
+        default: 0
+    },
+    lastEighthSessionScore: {
+        type: Number,
+        default: 0
+    },
+    lastNinthSessionScore: {
+        type: Number,
+        default: 0
+    },
+    lastTenthSessionScore: {
+        type: Number,
+        default: 0
     }
 });
 

@@ -45,8 +45,17 @@ router.post('/', (req,res) => {
                             name: user.name,
                             username: user.username,
                             totalScore: user.totalScore,
-                            completedLevel: user.completedLevel
-
+                            completedLevel: user.completedLevel,
+                            lastFirstSessionScore: user.lastFirstSessionScore,
+                            lastSecondSessionScore: user.lastSecondSessionScore,
+                            lastThirdSessionScore: user.lastThirdSessionScore,
+                            lastFourthSessionScore: user.lastFourthSessionScore,
+                            lastFifthSessionScore: user.lastFifthSessionScore,
+                            lastSixthSessionScore: user.lastSixthSessionScore,
+                            lastSeventhSessionScore: user.lastSeventhSessionScore,
+                            lastEighthSessionScore: user.lastEighthSessionScore,
+                            lastNinthSessionScore: user.lastNinthSessionScore,
+                            lastTenthSessionScore: user.lastTenthSessionScore
                         }
                     })
                 }
@@ -75,7 +84,17 @@ router.put('/update/:id', auth, (req,res) => {
         lastPlayedDateTime : req.body.lastPlayedDateTime,
         lastSessionScore : req.body.lastSessionScore,
         totalScore : req.body.totalScore,
-        completedLevel : req.body.completedLevel
+        completedLevel : req.body.completedLevel,
+        lastFirstSessionScore: req.body.lastSessionScore,
+        lastSecondSessionScore: req.body.lastSecondSessionScore,
+        lastThirdSessionScore: req.body.lastThirdSessionScore,
+        lastFourthSessionScore: req.body.lastFourthSessionScore,
+        lastFifthSessionScore: req.body.lastFifthSessionScore,
+        lastSixthSessionScore: req.body.lastSixthSessionScore,
+        lastSeventhSessionScore: req.body.lastSeventhSessionScore,
+        lastEighthSessionScore: req.body.lastEighthSessionScore,
+        lastNinthSessionScore: req.body.lastNinthSessionScore,
+        lastTenthSessionScore: req.body.lastTenthSessionScore
     }
 
     User.findByIdAndUpdate(req.params.id, newData)
@@ -87,7 +106,17 @@ router.put('/update/:id', auth, (req,res) => {
                     lastPlayedDateTime: player.lastPlayedDateTime,
                     lastSessionScore: player.lastSessionScore,
                     totalScore: player.totalScore,
-                    completedLevel: player.completedLevel
+                    completedLevel: player.completedLevel,
+                    lastFirstSessionScore: player.lastFirstSessionScore,
+                    lastSecondSessionScore: player.lastSecondSessionScore,
+                    lastThirdSessionScore: player.lastThirdSessionScore,
+                    lastFourthSessionScore: player.lastFourthSessionScore,
+                    lastFifthSessionScore: player.lastFifthSessionScore,
+                    lastSixthSessionScore: player.lastSixthSessionScore,
+                    lastSeventhSessionScore: player.lastSeventhSessionScore,
+                    lastEighthSessionScore: player.lastEighthSessionScore,
+                    lastNinthSessionScore: player.lastNinthSessionScore,
+                    lastTenthSessionScore: player.lastTenthSessionScore
                 }
             });
         }else {
